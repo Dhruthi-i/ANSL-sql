@@ -1,0 +1,93 @@
+-- All questions use a sample table Employees:
+
+-- Employees
+-- | EmpID | Name | Department | Salary | City | Age | Bonus |
+CREATE TABLE Employees(
+EmpID int primary key,
+Name varchar(20),
+Department varchar(20),
+Salary INT default 30000,
+City varchar(20),
+Age INT NOT NULL,
+Bonus INt default 2000
+);
+
+INSERT INTO Employees (EmpID, Name, Department, Salary, City, Age, Bonus) values 
+(101,'A','IT',65000,'HYD',45,3000),
+(102,'B','IT',59000,'DELHI',50,3000),
+(103,'C','DATA',45000,'HYD',25,3000),
+(104,'D','intern',30000,'HYD',45,null),
+(105,'E','DATA',45000,'KASHMIR',36,3000),
+(106,'F','HR',50000,'BANGALORE',43,null);
+
+-- 1.Write a query to display all columns from the Employees table.
+SELECT * FROM Employees;
+
+-- Projects
+-- | ProjectID | EmpID | ProjectName | HoursSpent |
+
+create table Projects(
+PrOjectID int primary key,
+EmpID int,
+ProjectName varchar(20),
+HoursSpend int
+);
+
+insert into Projects (ProjectID,EmpID,ProjectName,HoursSpend) VALUES 
+(1, 101, 'Website Redesign', 45.5),
+(2, 102, 'Mobile App Dev', 60.0),
+(3, 106, 'Database Migration', 30.25),
+(4, 101, 'API Integration', 20.0);
+
+SELECT * FROM Projects;
+-- CRUD
+-- 1.Display each employee’s name, salary, and annual salary (salary × 12).
+-- SELECT e.name,
+--       e.salary,
+--       e.salary*12 as "Annual Salary"
+-- FROM employees e;
+
+-- 2.Display distinct cities where employees with salary > 50,000 live.
+-- SELECT distinct e.City
+-- from employees e
+-- where salary > 50000;
+
+-- 3.Display employees who work in IT and earn above 60,000, or 
+-- employees not from ‘HR’.
+-- select *
+-- from employees e
+-- where (Department = 'IT' and salary > 60000) or Department <> 'HR';
+  -- OR NOT Department = 'HR';
+
+-- 4.Display employees ordered by department ASC and salary DESC.
+-- select *
+-- from employees e
+-- order by department asc,salary desc;
+
+-- 5.Display the top 3 oldest employees.
+-- select *
+-- from employees e
+-- order by age desc
+-- fetch first 3 row only;
+
+-- 6.Display employees whose Bonus is NULL and Salary > 40,000.
+-- select e.name,e.Salary,e.Bonus
+-- from employees e
+-- where Bonus is null and Salary > 40000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
