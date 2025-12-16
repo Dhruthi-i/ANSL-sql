@@ -75,6 +75,53 @@ SELECT * FROM Projects;
 -- from employees e
 -- where Bonus is null and Salary > 40000;
 
+-- -- 7.Insert a new employee whose bonus is the average bonus of all employees
+-- INSERT INTO Employees (EmpID, Name, Department, Salary, City, Age, Bonus)
+-- SELECT 200, 'Kavya', 'Finance', 70000, 'Mumbai', 27, AVG(Bonus)
+-- FROM Employees;
+
+-- -- 8.Q: Increase salary by 10% for employees whose salary is below the average salary.
+-- UPDATE Employees
+-- SET Salary = Salary * 1.10
+-- WHERE Salary < (SELECT AVG(Salary) FROM Employees);
+
+-- SELECT * FROM Employees;
+-- 9.Q: Delete employees from the ‘Intern’ department whose age is less than 22.
+-- Delete from employees e
+-- where department='intern' and age <12;
+
+-- 10.Q: Display total salary paid and number of employees in each department.
+
+-- SELECT Department,
+--       SUM(Salary) AS TotalSalary,
+--       count(empid) as "number of employees"
+-- FROM Employees
+-- GROUP BY Department;
+
+-- 11.Q: Find the minimum and maximum salary of employees who live in Chennai.
+-- SELECT MIN(salary), MAX(salary)
+-- FROM employees 
+-- WHERE city = 'chennai';
+
+-- 12.Q: Count how many different cities the employees belong to.
+-- SELECT distinct city
+-- from employees;
+
+-- 13.Q: Display employees with a salary category:
+-- High (≥80,000)
+-- Medium (50,000–79,999)
+-- Low (<50,000)
+SELECT Name,
+       Salary,
+       CASE
+           WHEN Salary >= 80000 THEN 'High'
+           WHEN Salary >= 50000 THEN 'Medium'
+           ELSE 'Low'
+       END AS SalaryCategory
+FROM Employees;
+
+
+
 
 
 
